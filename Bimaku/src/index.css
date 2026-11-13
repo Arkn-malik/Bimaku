@@ -1,0 +1,3 @@
+*{box-sizing:border-box}
+body{margin:0;background:#f8fafc;color:#0f172a;font:15px/1.5 system-ui,"Segoe UI",sans-serif}
+button,input,select{font:inherit}

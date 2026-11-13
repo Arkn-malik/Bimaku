@@ -1,0 +1,40 @@
+/* Animasi Dashboard */ 
+.sp-shell.go{--b:.1s}
+
+.sp-content>*{animation:spRise .6s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--b,0s) + var(--i,0) * .08s)}
+.sp-content>:nth-child(2){--i:1}.sp-content>:nth-child(3){--i:2}.sp-content>:nth-child(4){--i:3}.sp-content>:nth-child(5){--i:4}
+@keyframes spRise{from{opacity:0;transform:translateY(24px)}}
+
+.sp-content>.d-stats{animation:none}
+.d-stats>.d-stat{animation:spPop .65s cubic-bezier(.2,1.25,.35,1) backwards;animation-delay:calc(var(--b,0s) + .12s + var(--k,0) * .09s)}
+.d-stats>:nth-child(2){--k:1}.d-stats>:nth-child(3){--k:2}.d-stats>:nth-child(4){--k:3}
+@keyframes spPop{from{opacity:0;transform:translateY(26px) scale(.9)}}
+.d-stat .d-ico{transition:transform .25s cubic-bezier(.2,1.5,.4,1)}
+.d-stat:hover .d-ico{transform:rotate(-8deg) scale(1.08)}
+
+.d-meter i{transform-origin:left center;animation:spFill 1s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--b,0s) + .5s)}
+@keyframes spFill{from{transform:scaleX(0)}}
+
+@keyframes spSlideX{from{opacity:0;transform:translateX(-14px)}}
+
+@media(min-width:861px){
+  .sp-shell.go .sp-side{animation:spSideIn .8s cubic-bezier(.2,.9,.25,1) backwards}
+  @keyframes spSideIn{from{transform:translateX(-100%);opacity:.4}}
+}
+.sp-shell.go .sp-brand,
+.sp-shell.go .sp-lbl,
+.sp-shell.go .sp-nav a,
+.sp-shell.go .sp-info>*,
+.sp-shell.go .sp-me{animation:spSlideX .55s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--b) + .2s + var(--s,0) * .08s)}
+.sp-shell.go .sp-brand{--s:0}.sp-shell.go .sp-lbl{--s:1}
+.sp-shell.go .sp-nav a:nth-child(1){--s:2}.sp-shell.go .sp-nav a:nth-child(2){--s:3}.sp-shell.go .sp-nav a:nth-child(3){--s:4}.sp-shell.go .sp-nav a:nth-child(4){--s:5}
+.sp-shell.go .sp-info>:nth-child(1){--s:4}.sp-shell.go .sp-info>:nth-child(2){--s:5}.sp-shell.go .sp-info>:nth-child(3){--s:6}
+.sp-shell.go .sp-me{--s:7}
+
+.db-pills button{animation:spSlideX .5s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--b,0s) + .3s + var(--p,0) * .07s)}
+.db-pills button:nth-child(2){--p:1}.db-pills button:nth-child(3){--p:2}.db-pills button:nth-child(4){--p:3}
+@keyframes spFade{from{opacity:0}}
+
+@media(prefers-reduced-motion:reduce){
+  .sp-shell *,.sp-shell *::before,.sp-shell *::after{animation:none!important;transition:none!important}
+}
